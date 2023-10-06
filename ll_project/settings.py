@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 我的应用程序，需要放在默认应用程序前面，这样可以覆盖默认行为
+    'learning_logs',
+    # Django默认添加的应用程序
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
