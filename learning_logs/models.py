@@ -17,7 +17,7 @@ class Entry(models.Model):
     # 将该条目关联到另一条目中，这里是Topic；on_delete让其删除该条目时同时也删除相关联条目，即级联删除
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     text = models.TextField()   # 相比Char字段，该Text字段长度不受限制
-    data_added = models.DateTimeField(auto_now_add=True)    # 记录时间戳
+    date_added = models.DateTimeField(auto_now_add=True)    # 记录时间戳
 
     class Meta:
         """用于管理模型的额外信息"""

@@ -1,0 +1,8 @@
+<!--这里是对于所有模板文件的通用部分-->
+<p>
+    <!--这里是在设置指向其他页面的超链接，使用<a></a>定义-->
+    <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
+    <a href="{% url 'learning_logs:topics' %}">Topics</a>
+</p>
+
+{% block content %}{% endblock content %}
