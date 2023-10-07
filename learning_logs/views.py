@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Topic
+from .forms import TopicForm
 
 
 # Create your views here.
@@ -26,4 +27,24 @@ def topic(request, topic_id):
     entries = topic.entry_set.order_by('-date_added')   # 根据日期降序排列
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
+
+
+def new_topic(request):
+    """添加新主题"""
+    if request.method != 'POST':
+        # 此时请求类型为GET，未提交数据
+        form = TopicForm()
+    else:
+        # POST提交的数据：对数据进行处理
+        form = TopicForm(data=request.POST)
+        # 检查输入数据是否有效
+        if form.is_valid():
+            form.save()
+            # 重定向
+            return redirect('learning_logs:topics')
+
+    # 显示空表单或指出表单数据无效
+    context = {'form': form}
+    return render(request, 'learning_logs/new_topic.html', context)
+
 
