@@ -151,7 +151,7 @@ if config.is_valid_platform():
         db_settings = config.credentials('database')
         DATABASES = {
             'default': {
-                'ENGINE': db_settings['path'],
+                'ENGINE': 'django.db.backends.sqlite3',
                 'NAME': db_settings['username'],
                 'PASSWORD': db_settings['password'],
                 'HOST': db_settings['host'],
