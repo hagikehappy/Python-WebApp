@@ -8,17 +8,17 @@ relationships:
 web:
   upstream:
     socket_family: unix
-    commands:
-      # Start指定了用哪个进程处理到来的请求
-      start: "gunicorn -w 4 -b unix:$SOCKET ll_project.wsgi:application"
-      # locations指定了到来的请求发送到什么地方
-    locations:
-      "/":
-        passthru: true
-      "/static":
-        root: "static"
-        expires: 1h
-        allow: true
+  commands:
+    # Start指定了用哪个进程处理到来的请求
+    start: "gunicorn -w 4 -b unix:$SOCKET ll_project.wsgi:application"
+    # locations指定了到来的请求发送到什么地方
+  locations:
+    "/":
+      passthru: true
+    "/static":
+      root: "static"
+      expires: 1h
+      allow: true
 
 # 应用程序的永久性磁盘大小（单位为MB）
 disk: 512
