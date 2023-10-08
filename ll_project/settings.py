@@ -34,6 +34,10 @@ INSTALLED_APPS = [
     # 我的应用程序，需要放在默认应用程序前面，这样可以覆盖默认行为
     'learning_logs',
     'accounts',
+
+    # 第三方应用程序
+    'django_bootstrap5',
+
     # Django默认添加的应用程序
     "django.contrib.admin",
     "django.contrib.auth",
