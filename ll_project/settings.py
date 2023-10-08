@@ -152,7 +152,8 @@ if config.is_valid_platform():
         DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.postgresql',
-                'NAME': db_settings['username'],
+                'NAME': db_settings['path'],
+                'USER': db_settings['username'],
                 'PASSWORD': db_settings['password'],
                 'HOST': db_settings['host'],
                 'PORT': db_settings['port'],
