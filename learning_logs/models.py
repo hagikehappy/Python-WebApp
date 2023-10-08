@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -6,6 +7,7 @@ class Topic(models.Model):
     """用户学习的主题"""
     text = models.CharField(max_length=200)     # 由少量字符组成的数据
     date_added = models.DateTimeField(auto_now_add=True)    # 记录日期和时间的数据
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)     # 记录拥有者
 
     def __str__(self):
         """返回模型的字符串表示"""

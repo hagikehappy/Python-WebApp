@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # 我的应用程序，需要放在默认应用程序前面，这样可以覆盖默认行为
     'learning_logs',
+    'accounts',
     # Django默认添加的应用程序
     "django.contrib.admin",
     "django.contrib.auth",
@@ -124,3 +125,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# 我的设置，告诉Django用户成功登录后如何重定向
+LOGIN_REDIRECT_URL = 'learning_logs:index'
+LOGOUT_REDIRECT_URL = 'learning_logs:index'
+LOGIN_URL = 'accounts:login'
